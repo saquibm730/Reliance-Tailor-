@@ -181,9 +181,14 @@ alert("Order saved");
 
 function loadOrders(){
 let orders=JSON.parse(localStorage.getItem("orders"))||[];
-ordersDiv="";
+let list=document.getElementById("ordersList");
+
+list.innerHTML="";
+
 orders.forEach(o=>{
-orders.innerHTML+=`<p>${o.name} - ${o.phone}</p>`;
+let div=document.createElement("div");
+div.innerHTML=`<p>${o.name} - ${o.phone}</p>`;
+list.appendChild(div);
 });
 }
 
